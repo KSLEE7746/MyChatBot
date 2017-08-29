@@ -13,6 +13,6 @@ def echo_response(message):
     elif "안녕" in message["text"]:
       msg = "안녕하세요."
     else:
-      msg = "명령어 - 카드, 비교, 안녕"
+      msg = "응답할 수 없음"
 
     ReplyToActivity(fill=message, text=msg).send()
