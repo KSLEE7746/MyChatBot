@@ -1,4 +1,3 @@
 microsoftbotframework
 gunicorn
 konlpy
-jpype
