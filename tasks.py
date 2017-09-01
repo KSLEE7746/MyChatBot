@@ -14,7 +14,7 @@ def echo_response(message):
       msg = "안녕하세요."
     else:
       msg = "응답할 수 없음"
-      
+  
     s = socket.socket()
     host = '52.79.99.215'
     port = 12222
@@ -23,7 +23,7 @@ def echo_response(message):
     print('Connected to', host)
 
     #send_msg = input("Enter something for the server: ")
-    send_msg = input(message["text"])
+    send_msg = message["text"]
     s.send(send_msg.encode('utf-8'))
     # Halts
     print('[Waiting for response...]')
