@@ -2,7 +2,6 @@ from microsoftbotframework import ReplyToActivity
 import requests
 import json
 import socket 
-import sys 
 
 def echo_response(message):
   print(message)
@@ -16,20 +15,18 @@ def echo_response(message):
     else:
       msg = "응답할 수 없음"
       
-    serverIP = '52.79.99.215'
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # SOCK_STREAM은 TCP socket을 뜻함 
-    # sock.bind((bindIP, 1)) 
-    try: 
-      sock.connect((serverIP, 12222)) 
-    # 서버에 연결 요청 
-    # 서버로 송신 
-      sbuff = bytes(msg, encoding='utf-8') 
-      sock.send(sbuff) # 메시지 송신 
-      print('송신 {0}'.format(msg)) # 서버로부터 수신 
-      rbuff = sock.recv(1024) # 메시지 수신 
-      received = str(rbuff, encoding='utf-8') 
-      print('수신 : {0}'.format(received)) 
-    finally: socket.close()
-      
-    ReplyToActivity(fill=message, text=msg).send()
+    s = socket.socket()
+    host = '52.79.99.215'
+    port = 12222
+
+    s.connect((host, port))
+    print('Connected to', host)
+
+    send_msg = input("Enter something for the server: ")
+    s.send(send_msg.encode('utf-8'))
+    # Halts
+    print('[Waiting for response...]')
+    recv_msg = s.recv(1024).decode('utf-8')
+    print(recv_msg)
+    s.close()
+    ReplyToActivity(fill=message, text=recv_msg).send()
