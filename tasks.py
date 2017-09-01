@@ -22,7 +22,8 @@ def echo_response(message):
     s.connect((host, port))
     print('Connected to', host)
 
-    send_msg = input("Enter something for the server: ")
+    #send_msg = input("Enter something for the server: ")
+    send_msg = input(message["text"])
     s.send(send_msg.encode('utf-8'))
     # Halts
     print('[Waiting for response...]')
