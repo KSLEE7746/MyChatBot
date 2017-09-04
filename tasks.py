@@ -16,8 +16,8 @@ def echo_response(message):
       msg = "응답할 수 없음"
   
     s = socket.socket()
-    host = '13.124.234.183'
-    # host = '222.106.22.63'
+    # host = '13.124.234.183'
+    host = '222.106.22.63'
     port = 12222
 
     s.connect((host, port))
