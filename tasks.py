@@ -5,14 +5,11 @@ import socket
 
 def echo_response(message):
   print(message)
-  if message["from"]["id"] != None:
-    id = message["from"]["id"]
-  else:
-    id = None
-    
+  
   if message["type"] == "message":
     if "카드" in message["text"]:
       print(message["from"]["id"])
+      id = message["from"]["id"]
       msg = "카드 서비스 준비 중 입니다."
     elif "비교" in message["text"]:
       msg = "비교 서비스 준비 중 입니다."
