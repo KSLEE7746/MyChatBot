@@ -5,8 +5,10 @@ import socket
 
 def echo_response(message):
   print(message)
+  
   if message["type"] == "message":
     if "카드" in message["text"]:
+      print(message["from"])
       msg = "카드 서비스 준비 중 입니다."
     elif "비교" in message["text"]:
       msg = "비교 서비스 준비 중 입니다."
@@ -14,7 +16,7 @@ def echo_response(message):
       msg = "안녕하세요."
     else:
       msg = "응답할 수 없음"
-  print(message["from"])
+  
     s = socket.socket()
     # host = '13.124.234.183'
     host = '222.106.22.63'
