@@ -14,7 +14,7 @@ def echo_response(message):
       msg = "안녕하세요."
     else:
       msg = "응답할 수 없음"
-  print("from -> ",message["from"])
+  print(message["from"])
     s = socket.socket()
     # host = '13.124.234.183'
     host = '222.106.22.63'
