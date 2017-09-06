@@ -8,7 +8,7 @@ def echo_response(message):
   
   if message["type"] == "message":
     if "카드" in message["text"]:
-      print(message["from"])
+      print(message["from"]["id"])
       msg = "카드 서비스 준비 중 입니다."
     elif "비교" in message["text"]:
       msg = "비교 서비스 준비 중 입니다."
