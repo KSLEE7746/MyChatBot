@@ -5,7 +5,11 @@ import socket
 
 def echo_response(message):
   print(message)
-  
+  if message["from"]["id"] != None:
+    id = message["from"]["id"]
+  else:
+    id = None
+    
   if message["type"] == "message":
     if "카드" in message["text"]:
       print(message["from"]["id"])
@@ -26,7 +30,7 @@ def echo_response(message):
     print('Connected to', host)
 
     #send_msg = input("Enter something for the server: ")
-    send_msg = message["text"]
+    send_msg = message["text"] +"|"+ id
     s.send(send_msg.encode('utf-8'))
     # Halts
     print('[Waiting for response...]')
