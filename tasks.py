@@ -36,6 +36,6 @@ def echo_response(message):
 #       msg = "응답할 수 없음"
   elif message["type"] == "conversationUpdate":
     send_msg = "카드 추천 챗봇 입니다.\n1. OO카드 추천\n2. 내가 쓰고 있는 카드 혜택 알려줘\n3. OO카드와 XX카드 비교해\n4. OO카드 혜택 조회\n"
-    ReplyToActivity(fill=message, text=recv_msg).send()
+    ReplyToActivity(fill=message, text=send_msg).send()
     
   
