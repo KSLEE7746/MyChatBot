@@ -21,7 +21,7 @@ def echo_response(message):
     s.send(send_msg.encode('utf-8'))
     # Halts
     print('[Waiting for response...]')
-    recv_msg = s.recv(2048).decode('utf-8')
+    recv_msg = s.recv(4096).decode('utf-8')
     print(recv_msg)
     s.close()
     ReplyToActivity(fill=message, text=recv_msg).send()
