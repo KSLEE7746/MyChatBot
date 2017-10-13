@@ -11,8 +11,8 @@ def echo_response(message):
     user_id = message["from"]["id"]
     send_msg = message["text"] +"|"+ user_id
     s = socket.socket()
-#     host = '13.124.121.245'
-    host = '222.106.22.63'
+    host = '13.125.9.203'
+#     host = '222.106.22.63'
     port = 12222
 
     s.connect((host, port))
