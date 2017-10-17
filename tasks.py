@@ -37,7 +37,7 @@ def echo_response(message):
   elif message["type"] == "conversationUpdate":
     if "card_bot_test" in message["membersAdded"][0]["id"]: 
 #       send_msg = "카드 추천 챗봇 입니다.\n아래와 같은 형식으로 입력해주세요.\n OO 신용/체크카드 추천해줘\n나한테 맞는 카드 추천해줘\n 내 카드/OO카드 혜택 알려줘\n"
-      send_msg = "카드 추천 챗봇 입니다.\n\n아래와 같은 형식으로 입력해주세요.\n1. OO 신용/체크카드 추천해줘\n2. 나한테 맞는 카드 추천해줘\n3. 내 카드/OO카드 혜택 알려줘\n"
+      send_msg = "카드 추천 챗봇 입니다.\n\n아래와 같은 형식으로 입력해주세요.\n\n▶ OO 신용/체크카드 추천해줘\n\n▶ 나한테 맞는 카드 추천해줘\n\n▶ 내 카드/OO카드 혜택 알려줘\n\n▶ ○○카드랑 △△카드 비교해줘\n"
       ReplyToActivity(fill=message, text=send_msg).send()
     else:
       pass
